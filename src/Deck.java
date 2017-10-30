@@ -14,12 +14,31 @@ public class Deck {
 		}
 	}
 	
+	public Deck(String[] ranks, String[] suits, Integer[] points) {
+		cardDeck = new ArrayList<Card>();
+		if (ranks.length == suits.length && suits.length == points.length) {
+			for (int i = 0; i < ranks.length; i++) {
+				cardDeck.add(new Card(ranks[i], suits[i], points[i]));
+			}
+			size = cardDeck.size();
+			this.shuffle();
+		}
+	}
+
+	
 	public void shuffle() {
-		
+		int k = cardDeck.size() - 1;
+		while (k > 1) {
+			int r = (int) Math.round(Math.random()*k);
+			Card toSwap = cardDeck.get(r);
+			cardDeck.set(r, cardDeck.get(k));
+			cardDeck.set(k, toSwap);
+			k--;
+		}
 	}
 	
 	public boolean isEmpty() {
-		if (cardDeck.size() == 0) {
+		if (size == 0) {
 			return true;
 		}
 		else {
@@ -40,5 +59,9 @@ public class Deck {
 		else {
 			return null;
 		}
+	}
+	
+	public void sort() {
+		
 	}
 }
