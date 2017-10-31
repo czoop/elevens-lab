@@ -21,7 +21,6 @@ public class Deck {
 				cardDeck.add(new Card(ranks[i], suits[i], points[i]));
 			}
 			size = cardDeck.size();
-			this.shuffle();
 		}
 	}
 
@@ -61,7 +60,63 @@ public class Deck {
 		}
 	}
 	
+	public void resetSize() {
+		size = cardDeck.size();
+	}
+	
+	public Card highestCard() {
+		Card highCard = cardDeck.get(0);
+		for (Card card : cardDeck) {
+			if (card.getPoints() > highCard.getPoints()) {
+				highCard = card;
+			}
+		}
+		return highCard;
+	}
+	
+	public Card lowestCard() {
+		Card lowCard = cardDeck.get(0);
+		for (Card card : cardDeck) {
+			if (card.getPoints() < lowCard.getPoints()) {
+				lowCard = card;
+			}
+		}
+		return lowCard;
+	}
+	
+	public void clearDeck() {
+		while (cardDeck.size() > 0) {
+			cardDeck.remove(0);
+		}
+	}
+	
 	public void sort() {
+		ArrayList<Card> sorted = new ArrayList<Card>();
+		int lowestVal = lowestCard().getPoints();
+		int highestVal = highestCard().getPoints();
+		int cardIndex = 0;
+		while (lowestVal <= highestVal) {
+			while (cardIndex < cardDeck.size()) {
+				Card card = cardDeck.get(cardIndex);
+				if (card.getPoints() == lowestVal) {
+					sorted.add(card);
+					cardDeck.remove(cardIndex);
+				}
+				cardIndex++;
+			}
+			lowestVal++;
+			cardIndex = 0;
+		}
 		
+		cardDeck = sorted;
+	}
+	
+	@Override
+	public String toString() {
+		String str = "";
+		for (Card card : cardDeck) {
+			str += card + "\n";
+		}
+		return str;
 	}
 }

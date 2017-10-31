@@ -17,14 +17,16 @@ public class DeckTester {
 		points.add(12);
 		*/
 		
-		String[] ranks = {"Ace", "Queen", "King"};
-		String[] suits = {"Spades", "Hearts", "Clubs"};
-		Integer[] points = {1, 12, 13};
+		String[] ranks = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
+		String[] suits = {"Spades", "Spades", "Spades", "Spades", "Spades", "Spades", "Spades", "Spades", "Spades", "Spades", "Spades", "Spades", "Spades"};
+		Integer[] points = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
 		
 		Deck d = new Deck(ranks, suits, points);
 		
 		System.out.println(d);
 		d.shuffle();
+		System.out.println(d);
+		d.sort();
 		System.out.println(d);
 		
 		/*
