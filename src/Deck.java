@@ -23,6 +23,29 @@ public class Deck {
 			size = cardDeck.size();
 		}
 	}
+	
+	public Deck() {
+		String[] ranks = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King",
+						  "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King",
+						  "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King",
+						  "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
+		String[] suits = {"Spades", "Spades", "Spades", "Spades", "Spades", "Spades", "Spades", "Spades", "Spades", "Spades", "Spades", "Spades", "Spades",
+						  "Hearts", "Hearts", "Hearts", "Hearts", "Hearts", "Hearts", "Hearts", "Hearts", "Hearts", "Hearts", "Hearts", "Hearts", "Hearts", 
+						  "Clubs", "Clubs", "Clubs", "Clubs", "Clubs", "Clubs", "Clubs", "Clubs", "Clubs", "Clubs", "Clubs", "Clubs", "Clubs", 
+						  "Diamonds", "Diamonds", "Diamonds", "Diamonds", "Diamonds", "Diamonds", "Diamonds", "Diamonds", "Diamonds", "Diamonds", "Diamonds", "Diamonds", "Diamonds"};
+		Integer[] points = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+							1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+							1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+							1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
+		
+		cardDeck = new ArrayList<Card>();
+		if (ranks.length == suits.length && suits.length == points.length) {
+			for (int i = 0; i < ranks.length; i++) {
+				cardDeck.add(new Card(ranks[i], suits[i], points[i]));
+			}
+			size = cardDeck.size();
+		}
+	}
 
 	
 	public void shuffle() {

@@ -10,7 +10,7 @@ public class Card {
 	}
 	
 	public boolean isEqual(Card cardToCompare) {
-		if (cardToCompare.getRank().equals(rank) && 
+		if (cardToCompare.getRank().equals(rank) &&
 			cardToCompare.getSuit().equals(suit) && 
 			cardToCompare.getPoints() == points) {
 			return true;
@@ -23,6 +23,10 @@ public class Card {
 	@Override
 	public String toString() {
 		return rank + " of " + suit + " (Points: " + points + ")";
+	}
+	
+	public String toStringNoPoints() {
+		return rank + " of " + suit;
 	}
 
 	public String getRank() {

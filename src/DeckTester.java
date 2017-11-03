@@ -21,7 +21,8 @@ public class DeckTester {
 		String[] suits = {"Spades", "Spades", "Spades", "Spades", "Spades", "Spades", "Spades", "Spades", "Spades", "Spades", "Spades", "Spades", "Spades"};
 		Integer[] points = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
 		
-		Deck d = new Deck(ranks, suits, points);
+		//Deck d = new Deck(ranks, suits, points);
+		Deck d = new Deck();
 		
 		System.out.println(d);
 		d.shuffle();
